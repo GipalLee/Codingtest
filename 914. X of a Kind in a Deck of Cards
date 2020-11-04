@@ -1,0 +1,20 @@
+class Solution:
+    def hasGroupsSizeX(self, deck: List[int]) -> bool:
+        count = collections.Counter(deck)
+        mini = min(count.values())
+        
+        if mini < 2:
+            return False
+        for i in range(mini,1,-1):
+            res = all(value % i ==0 for value in count.values())
+            if res: return True
+        return False       
+        
+Greatest Common Divisor (최대 공약수)
+    
+    def hasGroupsSizeX(self, deck):
+        def gcd(a, b):
+            while b: a, b = b, a % b
+            return a
+        count = collections.Counter(deck).values()
+        return reduce(gcd, count) > 1 # reduce()는 시퀀셜한 객체 값들을 모두 함수에 넣어 
