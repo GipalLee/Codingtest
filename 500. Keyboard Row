@@ -1,0 +1,18 @@
+class Solution(object):
+    def findWords(self, words):
+        ans = []
+        a = list('qwertyuiop')
+        b = list('asdfghjkl')
+        c = list('zxcvbnm')
+        
+        for word in words :
+            check = set(word)
+            
+            if check&a == check :
+                ans.append(word)
+            if check&b == check :
+                ans.append(word)
+            if check&c == check :
+                ans.append(word)    
+        return res
+        
