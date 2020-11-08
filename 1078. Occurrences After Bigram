@@ -1,0 +1,9 @@
+class Solution:
+    def findOcurrences(self, text: str, first: str, second: str) -> List[str]:
+        ans = []
+        words = text.split(' ')
+        for i in ragne(2,len(words)) :
+            if words[i-2] == first and words[i-1] == second :
+                res.append(words[3]
+                
+        return res
