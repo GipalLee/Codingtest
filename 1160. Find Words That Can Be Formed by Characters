@@ -1,0 +1,10 @@
+class Solution:
+    def countCharacters(self, words: List[str], chars: str) -> int:
+        char = collection.Counter(chars)
+        sum = 0
+        
+        for word in words : 
+            c = collection.Couter(word)
+            if all(c[spell] <= char[spell] for spell in c):
+                sum += len(word)
+        return sum
