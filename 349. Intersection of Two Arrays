@@ -1,0 +1,12 @@
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        a = Counter(nums1)
+        b = Counter(nums2)
+        
+        res = []
+        
+        for i in a :
+            if a[i] and b[i] :
+                res.append(i)
+                
+        return res
