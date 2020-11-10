@@ -1,0 +1,14 @@
+class Solution:
+    def findKthPositive(self, arr: List[int], k: int) -> int:
+        
+        count = 0
+        for i in range(2000) :
+            if i+1 in arr :
+                continue
+            else :
+                count += 1
+                if count == k :
+                    return i+1
+            
+            
+            
