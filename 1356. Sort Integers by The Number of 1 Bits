@@ -1,0 +1,10 @@
+class Solution:
+    def sortByBits(self, arr: List[int]) -> List[int]:
+        
+        bits = [format(x, "b") for x in arr]
+        
+        ones = [one.count("1") for one in bits]
+        
+        pairs = [[x, y] for x, y in zip(ones, arr)]
+        
+        return [y for x, y in sorted(pairs)]
