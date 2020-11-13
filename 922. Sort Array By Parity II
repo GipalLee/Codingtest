@@ -1,0 +1,12 @@
+class Solution:
+    def sortArrayByParityII(self, A: List[int]) -> List[int]:
+        even= [x for x in A if x % 2 == 0]
+        odd = [x for x in A if x % 2 == 1 ]
+        res = []
+        count = 0
+        
+        while count<len(even) :
+            res.append(even[count])
+            res.append(odd[count])            
+            count +=1
+        return res
