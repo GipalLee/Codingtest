@@ -1,0 +1,18 @@
+class Solution:
+    def buildArray(self, target: List[int], n: int) -> List[str]:
+        operations = []
+        currentNum = 1
+        
+        for num in target :
+        
+        while currentnum < num :
+            operations.append("push")
+            operations.append("pop")
+            currentnum += 1
+            
+        operation.append("push")
+        currentnum +=1
+        
+        
+        return operation
+          
