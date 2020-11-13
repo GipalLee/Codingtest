@@ -1,0 +1,25 @@
+class Solution:
+    def sortString(self, s: str) -> str:
+        letterOrder = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+                       'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+                       
+                       
+        def small(result = str, s = str, letterOrder = list) :
+          for i in letterOrder :
+            if i in s :
+              result += i
+              s = s.replace(i,"",1)
+          return result, s
+          
+        def big (result = str, s =str, letterOrder = list) :
+          for i in reversed(letterOrder) :
+            if i in s  :
+              result += i
+              s = s.replace(i,",1)
+          return result, s
+          
+          
+          while s :
+            result , s = small(result,s,letterOrder)
+            result , s = big(result,s,letterOrder)
+          return result
