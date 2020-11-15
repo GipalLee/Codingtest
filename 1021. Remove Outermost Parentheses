@@ -1,0 +1,17 @@
+class Solution:
+    def removeOuterParentheses(self, S):
+        res = []
+        balance = 0
+        start = 0
+        for i in range(len(S)) :
+          if S[i] == "(" :
+            balance += 1
+            
+          else S[i] == ")" :
+            balance -= 1 
+            
+          if balance == 0 :
+             res.append(S[start : i])
+             start = i+1
+        
+        return "".join(res)
