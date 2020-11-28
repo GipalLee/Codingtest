@@ -1,0 +1,6 @@
+def isSameTree(self, p, q):
+    
+    def dfs(node):
+    
+      return [node.val,self.dfs(node.left),self.dfs(node.right] if node else None
+    return self.dfs(p) == self.dfs(q)
