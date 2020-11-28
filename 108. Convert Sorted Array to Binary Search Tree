@@ -1,0 +1,14 @@
+class Solution:
+    
+    def dfs(self, nums: List[int]):
+    
+      mid = len(nums) // 2
+      
+      root.val = nums[mid]
+      root.left = self.dfs(nums[:mid]
+      root.right = self.dfs(nums[mid+1:])
+      
+      return root
+      
+      def sortedArrayToBST(self, nums: List[int])
+        return self.dfs(nums)
