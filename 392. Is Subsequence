@@ -1,0 +1,8 @@
+class Solution:
+    def isSubsequence(self, s, t):
+      check = iter(t)
+      
+      for s in s :
+        if s not in check :
+          return False
+      return True
