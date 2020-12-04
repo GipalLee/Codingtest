@@ -1,0 +1,35 @@
+class Solution:
+    def lemonadeChange(self, bills: List[int]) -> bool:
+        pocket = {5:0,10:0,20:0}
+        
+        for i in bills :
+            
+            if i == 5 :
+                pocket[5] += 1
+            
+            elif i == 10 :
+                if pocket[5] >= 1 :
+                    pocket[5] -= 1
+                    pocket[10] += 1
+                else :
+                    return False    
+                
+            elif i ==20 :
+                
+                if (pocket[5] >= 1 and pocket[10] >= 1) :
+                    pocket[20] += 1  
+                    pocket[5] -=1
+                    pocket[10] -=1
+                    continue
+                elif pocket[5] >= 3  :
+                    pocket[20] += 1
+                    pocket[5] -= 3
+                    continue
+                    
+                else :    
+                    return False
+                
+        
+        return True
+                
+        
