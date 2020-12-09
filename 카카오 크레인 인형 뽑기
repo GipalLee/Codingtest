@@ -1,0 +1,22 @@
+def solution(board, moves):
+    answer = 0
+    stack = []
+    for i in moves : #크레인의 위치
+        i = i-1 # 실제위치(열)
+        for j in range(len(board[0])) : #인형이 있는지 탐색하기 위해 행을 순서대로 탐 0,1,2,3,4
+                           
+            if board[j][i] == 0 :
+                continue
+            if board[j][i] != 0:
+                stack.append(board[j][i])
+                board[j][i] = 0
+                if len(stack) >= 2 :
+                    if stack[-1] == stack[-2] :
+                        stack.pop()
+                        stack.pop()
+                        answer += 2
+                
+                break #인형을 뽑았으므로 다음 뽑기로 넘어감
+
+
+    return answer
