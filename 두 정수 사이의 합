@@ -1,0 +1,10 @@
+def solution(a, b):
+    if a == b :
+        return a
+    answer = 0
+    big = max(a,b)
+    mi = min(a,b)
+    while mi <= big :
+        answer += mi
+        mi += 1
+    return answer
