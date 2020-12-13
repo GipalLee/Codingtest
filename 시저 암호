@@ -1,0 +1,13 @@
+def solution(s, n):
+    answer = ''
+    small = "abcdefghijklmnopqrstuvwxyz"
+    big = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    
+    for i in s :
+        if i == " " :
+            answer += " "
+        if i in small :
+            answer += small[(small.find(i)+n)%len(small)]
+        if i in big :
+            answer += big[(big.find(i)+n)%len(big)]
+    return answer
