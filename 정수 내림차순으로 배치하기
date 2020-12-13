@@ -1,0 +1,5 @@
+def solution(n):
+    a = list(str(n))
+    a = sorted(a,reverse=True)
+    
+    return int(''.join(a))
