@@ -1,0 +1,12 @@
+def solution(n):
+    answer = ""
+    m = 1
+    
+    while m<=n :
+        if m % 2 != 0 :
+            answer += "수"
+        if m % 2 == 0 :
+            answer += "박"
+        m +=1
+        
+    return answer
