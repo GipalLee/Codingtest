@@ -1,0 +1,18 @@
+def solution(d, budget):
+    d.sort()
+    cnt = 0
+    # if sum(d) == budget :
+    #     answer = len(d)
+    # elif sum(d) < budget :
+    #     for i in d :
+    #         budget -= i
+    #         cnt += 1
+    #         answer = cnt
+    # else :
+    for i in d :
+        budget -= i
+        if budget < 0 :
+               break
+        cnt += 1
+    answer = cnt
+    return answer
