@@ -1,0 +1,8 @@
+def solution(x):
+    t = str(x)
+    ans = 0
+    for i in t :
+        ans += int(i)
+    if x % ans == 0 :
+        return True
+    return False
