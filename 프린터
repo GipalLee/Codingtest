@@ -1,0 +1,20 @@
+from collections import deque
+
+def solution(priorities, location):
+    answer = 0
+    total = len(priorities)
+    stack = [0] * total
+    stack[location] = 1
+    
+    while 1 in stack :
+        a = priorities.pop(0)
+        b = stack.pop(0)
+        for i in priorities :
+            if a < i :
+                priorities.append(a)
+                stack.append(b)
+                break
+        if b == 1 :
+            answer = total - len(stack)
+
+    return answer
