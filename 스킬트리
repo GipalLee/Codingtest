@@ -1,0 +1,13 @@
+def solution(skill, skill_trees):
+    answer = 0
+    skill = list(skill)
+    for i in skill_trees :
+        stack = []
+        for j in i :
+            if j in skill :
+                stack.append(skill.index(j))
+        
+        
+        if [i for i in range(len(stack))] == stack :
+            answer += 1
+    return answer
