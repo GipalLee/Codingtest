@@ -1,0 +1,11 @@
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        n = str(n) # 주어진 정수를 문자열 형태로 변환
+        product_digit = 1 # 곱셉을 담을 변수
+        sum_digit =0  # 덧셈을 담을 변수
+        
+        for i in n :
+            product_digit *= int(i) # 한 자리의 숫자르 가져와 정수로 교환 후 곱함
+            sum_digit += int(i) # 한 자리의 숫자르 가져와 정수로 교환 후 더함
+        
+        return product_digit - sum_digit # 차를 반환
