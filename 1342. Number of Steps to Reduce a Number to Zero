@@ -1,0 +1,14 @@
+class Solution:
+    def numberOfSteps (self, num: int) -> int:
+        count = 0 # 횟수를 적을 변수
+        
+        while num != 0 : # num이 0이 아닐경우 계속반복
+            count += 1   # 횟수 1회 추가
+            if num % 2 == 0 : # 짝수
+                num = num // 2
+                
+            else : # 홀수
+                num -= 1
+            
+        return count
+        
