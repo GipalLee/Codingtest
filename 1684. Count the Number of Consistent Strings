@@ -1,0 +1,14 @@
+class Solution:
+    def countConsistentStrings(self, allowed: str, words: List[str]) -> int:
+        count = 0
+        for i in words : # 문자열 배열에서 한 문자열을 선택
+            res = True # 결과 저장하는 변수
+            for j in i : # 선택한 문자열의 문자를 순서대로 돌림
+                if j in allowed: # allowed 에 포함된 문자일 경우 패스
+                    continue
+                else :           # allowed 에 포함되지 않았다면 res 변수를 False로 변경
+                    res = False
+            
+            if res == True :  # 한 문자열의 각 문자를 모두 검사 후에도 True라면 카운트
+                count += 1
+        return count
