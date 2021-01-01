@@ -1,0 +1,13 @@
+class Solution:
+    def numberOfMatches(self, n: int) -> int:
+        total = 0
+        
+        while n != 1 :      # 한 팀이 남을때까지
+            if n % 2 == 0 :   # 총 팀의 수가 짝수일 때
+                n = n // 2
+                total += n
+            else :
+                n = (n-1) // 2  # 총 팀의 수가 홀수일 때
+                total += n   # 이루어진 경기 수를 더해줌
+                n += 1  # 부전승으로 올라간 한명 처리
+        return total
