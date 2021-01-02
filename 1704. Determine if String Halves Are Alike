@@ -1,0 +1,17 @@
+class Solution:
+    def halvesAreAlike(self, s: str) -> bool:
+        
+        vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+        
+        a = 0
+        b = 0
+        
+        for i in range(0,len(s)//2) :  # 절반 확인 range()에는 정수가 들어가야 되므로 //
+            if s[i] in vowels :        # 해당 문자가 vowels 리스트에 있을 경우
+                a += 1                 # 카운트
+        
+        for i in range(len(s)//2,len(s)) :
+            if s[i] in vowels :
+                b += 1
+        
+        return a == b       # 일치하면 true 아니면 false 반환
