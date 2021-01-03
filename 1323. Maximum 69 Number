@@ -1,0 +1,18 @@
+class Solution:
+    def maximum69Number (self, num: int) -> int:
+        first = 0
+        last = 0
+        num = str(num)
+        
+        for i in range(len(num)) :
+            if num[i] == '6' :
+                first = i
+                break
+        nums = []
+        for i in range(len(num)) :
+            if i == first :
+                nums.append('9')
+            else:
+                nums.append(num[i]) 
+        return ''.join(nums)
+            
