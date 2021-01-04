@@ -1,0 +1,13 @@
+class Solution:
+    def destCity(self, paths: List[List[str]]) -> str:
+        
+        for i in paths :
+            cur = False
+            
+            for j in paths :
+                if i[1] in j[0] :
+                    cur  = True
+                    break
+            
+            if cur == False :
+                return i[1]
