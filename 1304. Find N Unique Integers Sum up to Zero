@@ -1,0 +1,20 @@
+class Solution:
+    def sumZero(self, n: int) -> List[int]:
+        
+        
+        ans = []
+        
+        start = 1
+        for _ in range(n//2) :
+            ans.append(-start)
+            start += 1
+            
+        if n % 2 != 0 :
+            ans.append(0)
+        
+        start = 1
+        for _ in range(n//2) :
+            ans.append(start)
+            start += 1
+        
+        return ans
