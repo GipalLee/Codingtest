@@ -1,0 +1,8 @@
+class Solution:
+    def finalPrices(self, A):
+        stack = []
+        for i, a in enumerate(A):               # i 에는 인덱스가 a 에는 값이 들어감
+            while stack and A[stack[-1]] >= a:  # 스택에 무언가 있고 마지막 값을 인덱스로 한 값이 a보다 크면
+                A[stack.pop()] -= a             # 스택 마지막값을 인덱스로 하는 배열 A의 값에 현재 a를 뺌
+            stack.append(i)                     # 스택에
+        return A
