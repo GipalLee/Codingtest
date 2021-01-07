@@ -1,0 +1,23 @@
+class Solution:
+    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+        
+        ans = []
+        for i in range(left,right+1) :
+            
+            cur = i
+            i = list(str(i))
+            
+            if '0' in i :
+                continue
+            
+            possible = True
+            
+            for digit in i :
+                if cur % int(digit) != 0 :
+                    possible = False
+                    break
+            if possible == True :
+                ans.append(cur)
+        
+        return ans
+                
