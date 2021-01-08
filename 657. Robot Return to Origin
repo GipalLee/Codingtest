@@ -1,0 +1,22 @@
+class Solution:
+    def judgeCircle(self, moves: str) -> bool:
+        hori = 0   #수평
+        verti = 0  #수직
+        
+        ans = 0
+        
+        for i in moves :     # 문자열을 한 글자씩 뽑아서 일치하는 것을 찾음
+            
+            if i == 'U' : 
+                verti += 1
+            if i == 'D' :
+                verti -= 1
+            if i == 'L' :
+                hori += 1        
+            if i == 'R' :
+                hori -= 1
+        
+        if hori ==0 and verti ==0 :        # 모두 완료 후 둘 다 0이여야 제자리임을 인정
+            return True
+        else :
+            return False
