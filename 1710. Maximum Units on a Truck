@@ -1,0 +1,12 @@
+class Solution:
+    def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
+        boxTypes.sort(key=lambda x: -x[1])    # unit이 큰 것부터 정렬
+        ans = 0
+        for box, units in boxTypes:    
+            if truckSize > box:        # 트럭사이즈가 여유가 있을 경우
+                truckSize -= box       # 모두 빼고
+                ans += box * units     # 총 유닛을 더해줌
+            else:
+                ans += truckSize * units   # 남은 트럭 사이즈에 현재 유닛을 곱해서 더해줌
+                return ans
+        return ans 
