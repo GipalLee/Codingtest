@@ -1,0 +1,19 @@
+class Solution:
+    def diStringMatch(self, S: str) -> List[int]:
+        
+        num = []
+        ans = []
+        
+        for i in range(len(S)+1) :
+            num.append(i)
+        
+        
+        for i in S :
+            if i == "I" :
+                ans.append(num.pop(0))
+            else :
+                ans.append(num.pop())
+                
+        ans.append(num.pop())
+                
+        return ans
