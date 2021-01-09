@@ -1,0 +1,15 @@
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        ans =[]
+        stack = []
+        for i in s :
+            if i == " " :
+                while stack :
+                    ans.append(stack.pop())
+                ans.append(" ")
+            else :
+                stack.append(i)
+        
+        while stack :
+            ans.append(stack.pop())
+        return "".join(ans)
