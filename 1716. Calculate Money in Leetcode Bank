@@ -1,0 +1,17 @@
+class Solution:
+    def totalMoney(self, n: int) -> int:
+        
+        ans = 0
+        count = 0
+        start = 0
+        
+        for i in range(n) :
+            if count % 7 == 0 :
+                start += 1
+                cur = start
+            
+            ans += cur
+            cur += 1
+            count += 1
+        
+        return ans
