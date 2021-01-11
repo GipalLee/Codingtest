@@ -1,0 +1,8 @@
+class Solution:
+    def countStudents(self, studnets, sandwiches):
+        count = Counter(students)        # 학생이 원하는 샌드위치 수를 셈
+        n, k = len(students), 0          # n은 총 학생의 수, k는 접시 맨 위(인덱스)
+        while k < n and count[sandwiches[k]]:  # 샌드위치 맨 위에 놓인 종류의 개수가 남았을 때
+            count[sandwiches[k]] -= 1    # 샌드위치를 하나 뺌
+            k += 1       # 받아간 사람을 카운트 (샌드위치의 맨 위의 인덱스가 바뀐 것을 의미하기도 함)
+        return n - k     # 전체 학생 수에서 받아간 사람 빼기
