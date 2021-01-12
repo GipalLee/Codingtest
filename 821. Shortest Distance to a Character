@@ -1,0 +1,8 @@
+def shortestToChar(self, S, C):
+        n = len(S)
+        res = [n] * n   # 처음 초기값을 가장 먼 거리로 둠
+        pos = -n  # position을 의미 , 의미 없는 값으로 초기화
+        for i in list(range(n)) + list(range(n)[::-1]): # 총 길이 범위 + 총 길이 범위 역순
+            if(S[i] == C):  pos = i  # 기준 문자일 경우 포지션으로 해당 인덱스 대입
+            res[i] = min(res[i], abs(i - pos))  # 해당 문자가 가지고 있던 거리, 기준 문자에서 해당 위치까지 거리 중 작은 것을 대입
+        return res                              # 기준 문자가 여러개이므로 정방향 한번 역방향 한번 돌려서 작은 값을 찾음
