@@ -1,0 +1,20 @@
+class Solution:
+    def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:
+        arr.sort()        # 차의 값이 작을려면 가까운 값을 빼야하므로
+        mini = 999999
+        
+        for i in range(len(arr)-1) : # 0 부터 마지막 -1 인덱스까지 (i+1을 사용하므로)
+            now = abs(arr[i+1] - arr[i])  # 다음값 - 지금값의 절대값
+            
+            if now < mini :  # 기존에 있던 최소값 보다 작을경우 > 정답 리셋 후 추가, 최소값 수정
+                stack = []
+                stack.append([arr[i],arr[i+1]])
+                mini = now
+            elif now == mini :   # 기존에 있던 최소값과 동일할 경우 > 정답에 추가
+                stack.append([arr[i],arr[i+1]])
+                
+            elif now > mini : # 기존에 있던 최소값 보다 클 경우 > 무시
+                continue
+        
+        return stack
+            
