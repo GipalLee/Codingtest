@@ -1,0 +1,28 @@
+class Solution:
+    def numUniqueEmails(self, emails: List[str]) -> int:
+        
+        res =[]
+        
+        for account in emails :
+            stack = ""
+            ignore = False
+            for i in range(len(account)) :
+                
+                if account[i] == '.' :
+                    continue
+                    
+                elif account[i] == '+' :
+                    ignore = True
+                    continue
+                    
+                elif account[i] == '@' :
+                    stack += account[i:]
+                    break
+                    
+                else :
+                    if not ignore :
+                        stack += account[i]
+                    else :
+                        continue
+            res.append(stack)
+        return len(set(res))
