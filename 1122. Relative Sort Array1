@@ -1,0 +1,10 @@
+class Solution:
+    def relativeSortArray(self, arr1: List[int], arr2: List[int]) -> List[int]:
+        count = Counter(sorted(arr1))  # arr1 을 정렬후 카운트
+        ans = []
+        
+        for i in arr2 :   # arr2의 값들을 순서대로 대입
+            for j in range(count[i]) :   # 이번 차례의 arr2의 원소가 arr1에 들어있는 만큼 반복
+                ans.append(i)            # 정답에 추가
+                count[i] -= 1            # 카운트 개수 -1
+        return ans + list(count.elements())    # arr2에 있는 값들대로는 정렬 완료 후 , 나머지 추가
