@@ -1,0 +1,6 @@
+class Solution:
+    def isPrefixOfWord(self, sentence: str, searchWord: str) -> int:
+        for i, w in enumerate(sentence.split(' '), 1): # 시작 인덱스가 1부터
+            if w.startswith(searchWord):  # 찾아야 할 단어로 시작되면
+                return i               # 해당 인덱스 반환
+        return -1 
