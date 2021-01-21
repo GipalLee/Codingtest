@@ -1,0 +1,12 @@
+class Solution:
+    def stringMatching(self, words: List[str]) -> List[str]:
+        ans = []
+        
+        for i in words :
+            a = words.copy()
+            a.remove(i)
+            for j in a :
+                if i in j :
+                    ans.append(i)
+                    
+        return set(ans)
