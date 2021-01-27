@@ -1,0 +1,13 @@
+def solution(arr):
+    answer = []
+    
+    for i in arr :              # 원소 하나씩 가져오기
+        if not answer :         # answer 변수가 비어있을 경우
+            answer.append(i)    # 추가
+        else :                  # answer 변수가 있을 경유
+            if answer[-1] == i :  # 마지막 값과 같은 값일 경우
+                continue          # 패스
+            else :                # 다르면
+                answer.append(i)  # 추가
+
+    return answer
