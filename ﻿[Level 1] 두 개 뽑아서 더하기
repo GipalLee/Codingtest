@@ -1,0 +1,8 @@
+def solution(numbers):
+    answer = []
+    # 완전 탐색
+    for i in range(len(numbers)) :             # 기준 인덱스
+        for j in range(i+1,len(numbers)) :     # 움직일 인덱스
+            answer.append(numbers[i] + numbers[j])
+        
+    return sorted(set(answer)) # 중복 값 제거 후 오름차순 정렬
