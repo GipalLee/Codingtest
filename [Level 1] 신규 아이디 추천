@@ -1,0 +1,38 @@
+def solution(new_id):
+    answer = ''
+    
+    # 1
+    new_id = new_id.lower() # 소문자로 변경
+    
+    # 2
+    for i in new_id :  # 해당 조건을 제외하고 문자열에서 제거
+        if i.isalnum() or i == "-" or i == "_" or i == "." :
+            answer += i
+        else :
+            continue
+            
+    # 3
+    while ".." in answer : # ".."가 없을때까지 교체
+        answer = answer.replace("..",".")
+    
+    # 4
+    if answer.startswith(".") : # "."으로 시작할 경우
+        answer = answer[1:]
+    if answer.endswith(".") : # "."으로 끝날 경우
+        answer = answer[:-1]
+    
+    # 5
+    if answer == "" :
+        answer += "a"
+    
+    # 6
+    if len(answer) > 15 :   # 길이가 16 이상 일 경우 뒤는 짜름
+        answer = answer[:15]
+    if answer.endswith(".") : # 짜른 값의 마지막이 "."이 있을 경우
+        answer = answer[:-1]
+    
+    # 7 
+    while len(answer) < 3 : # 길이가 2 이하일 경우
+        answer += answer[-1]
+    
+    return answer
