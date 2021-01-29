@@ -1,0 +1,7 @@
+def solution(array, commands):
+    answer = []
+    cur = []
+    for command in commands :
+        i,j,k = command # 이번 차례의 명령에서 각 원소 뽑음
+        answer.append(sorted(array[i-1:j])[k-1]) # i부터 j까지 자른뒤 정렬 후 k번째 값 추가
+    return answer
