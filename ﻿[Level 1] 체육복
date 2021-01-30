@@ -1,0 +1,11 @@
+def solution(n, lost, reserve):
+    _reserve = [r for r in reserve if r not in lost] # 여분을 가져오고 본인이 도난당하지 않을 경우
+    _lost = [l for l in lost if l not in reserve] # 도난 당했는데 여분을 가져오지 않은 경우
+    for r in _reserve:
+        f = r - 1  # 이전 사람
+        b = r + 1  # 다음 사람
+        if f in _lost: # 이전 사람이 잃어버렸을 경우
+            _lost.remove(f) # 빌려주고 목록에서 제거
+        elif b in _lost:
+            _lost.remove(b)
+    return n - len(_lost) # 총 인원 - 잃어버린 사람
