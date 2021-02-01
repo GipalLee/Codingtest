@@ -1,0 +1,4 @@
+def solution(strings, n):
+    
+    return sorted(strings, key = lambda x : x[n]+x[:])
+    # 정렬의 기준이 x의 n번째 인덱스 + 문자열이 된다
