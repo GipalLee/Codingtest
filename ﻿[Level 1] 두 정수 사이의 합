@@ -1,0 +1,10 @@
+def solution(a, b):
+    if a == b :   # 같을 경우
+        return a
+    answer = 0
+    big = max(a,b) # 큰 수 찾기
+    mi = min(a,b)  # 작은 수 찾기
+    while mi <= big :  # 더해서 결과 만들기
+        answer += mi
+        mi += 1
+    return answer
