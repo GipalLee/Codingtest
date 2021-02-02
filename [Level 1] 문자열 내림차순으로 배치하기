@@ -1,0 +1,3 @@
+def solution(s):
+    s = list(s)
+    return ''.join(sorted(s, reverse=True)) # 정렬은 대문자 다음 소문자, a에서 z 순으로 정렬된다
