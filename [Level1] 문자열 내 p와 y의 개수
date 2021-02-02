@@ -1,0 +1,15 @@
+def solution(s):
+    
+    p= 0
+    y= 0
+    s = s.lower() # 모두 소문자로 변경
+    
+    for i in s :       # 각 글자 카운트
+        if i  == 'p':
+            p += 1
+        if i == 'y' :
+            y += 1
+            
+    if p == 0 and y == 0 :
+        return True
+    return p == y
