@@ -1,0 +1,12 @@
+def solution(n, m):
+    if n == m :    # 두 수가 같을 경우 
+        retrun [m,m] # 최소 공배수와 최대 공약수는 같다
+    
+    original_big = big = max(n,m) # 큰 수 찾기
+    original_small = small = min(n,m) # 작은 수 찾기
+    
+    while small != 0 :                  # 유클리드 호제법
+        big, small = small,big%small
+        
+
+    return [big,(original_big*original_small)/big]
