@@ -1,0 +1,8 @@
+def solution(n):
+    answer = []
+    a = str(n)
+    for i in a :              # 리스트 생성
+        answer.append(int(i)) # list(str(n))[::-1] 코드로 제출 시 실패가 뜸
+                              # 작동은 되는 코드임 
+    
+    return answer[::-1] # 역순 반환
