@@ -1,0 +1,7 @@
+def solution(n):
+    answer = 0
+    s = str(n)  # 문자열 변환
+    for i in s :
+        answer += int(i) # 한 원소 가져온 것 정수로 변환
+    
+    return answer
