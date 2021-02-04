@@ -1,0 +1,10 @@
+def solution(d, budget):
+    d.sort() # 신청한 금액 오른차순으로 정렬
+    cnt = 0
+    for i in d :
+        budget -= i # 예산에서 빼나감
+        if budget < 0 : # 초과시 끝
+               break
+        cnt += 1
+    answer = cnt 
+    return answer
