@@ -1,0 +1,7 @@
+def solution(phone_number):
+    answer = ''
+    phone_number = list(phone_number) # 문자열을 리스트로 바꾼 뒤
+    for i in range(len(phone_number)-4) : # 4글를 제외하고
+        phone_number[i] = '*' # 숫자를 가린다
+        
+    return ''.join(phone_number) # 리스트를 다시 문자열로 변환
