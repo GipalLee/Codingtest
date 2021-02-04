@@ -1,0 +1,7 @@
+def solution(x, n):
+    answer = []
+    for i in range(n) : # 총 n번
+        answer.append(x+x*i) # x의 값이 증가한다
+        
+    
+    return answer
