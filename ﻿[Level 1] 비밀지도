@@ -1,0 +1,9 @@
+def solution(n, arr1, arr2):
+    answer = []
+    for i,j in zip(arr1,arr2):
+        a12 = str(bin(i|j)[2:]) # bin() 는 숫자를 입력받아 '0b가 붙은 2진수' 문자열을 반환한다
+        a12=a12.rjust(n,'0') # rjust() 는 입력값만큼 공간을 확보하여 오른쪽 정렬한다 빈 공간을 채울수도 있다
+        a12=a12.replace('1','#')
+        a12=a12.replace('0',' ')
+        answer.append(a12)
+    return answer
