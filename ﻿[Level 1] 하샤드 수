@@ -1,0 +1,8 @@
+def solution(x):
+    t = str(x) # 문자열로 바꿈
+    ans = 0
+    for i in t :
+        ans += int(i) # 한 원소를 가져와 숫자로 다시 바꿈
+    if x % ans == 0 : # 나누어 떨어지나 확인
+        return True
+    return False
