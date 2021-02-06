@@ -1,0 +1,13 @@
+def solution(skill, skill_trees):
+    answer = 0
+    skill = list(skill) # 리스트로 전환
+    for i in skill_trees : # 하나의 스킬트리 가져옴
+        stack = [] # 스택 초기화
+        for j in i : # 스킬을 순서대로 가져옴
+            if j in skill : # 해당 스킬의 인덱스를 stack에 입력
+                stack.append(skill.index(j))
+        
+        
+        if [i for i in range(len(stack))] == stack : # stack의 개수가 선행스킬 목록과 개수가 같으면 더이상 체크 안해도 됨
+            answer += 1
+    return answer
