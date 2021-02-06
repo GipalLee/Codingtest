@@ -1,0 +1,18 @@
+from collections import deque
+
+def solution(prices):
+    answer = []
+    prices = deque(prices) # 데크 생성
+    
+    while prices :
+        c = prices.popleft() # 데크에서 가장 첫번째 값을 뽑는다
+        
+        count = 0
+        
+        for i in prices : # 남은 가격들과 뺀 가격을 비교한다
+            count += 1 # 바로 가격이 떨어져도 1
+            if c > i : # 떨어지는 순간 끝내고 정답에 추가
+                break
+            
+        answer.append(count)
+    return answer
