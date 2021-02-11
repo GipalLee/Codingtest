@@ -1,0 +1,17 @@
+import heapq as hq
+
+def solution(scoville, K):
+
+    hq.heapify(scoville)
+    answer = 0
+    while True:
+        first = hq.heappop(scoville) # 가장 작은 값을 뽑아냄
+        if first >= K: # 가장 작은 값이 스코빌 지수를 넘으면 끝
+            break
+        if len(scoville) == 0: # 배열에 second로 뽑을 값이 없을 경우 -1
+            return -1
+        second = hq.heappop(scoville)  # 두번째로 작은 값 뽑아냄
+        hq.heappush(scoville, first + second*2) # 섞어서 다시 붙임
+        answer += 1   # 카운트
+
+    return answer
