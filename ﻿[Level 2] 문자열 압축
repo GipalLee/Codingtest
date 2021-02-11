@@ -1,0 +1,24 @@
+def compress(text, tok_len): # 반복되는 패턴의 글자 수가 주어졌을 때 압축한 글자 수 출력
+    # text = 압축해야 할 대상
+    # tok_len = 압축할 글자 수
+    words = [text[i:i+tok_len] for i in range(0, len(text), tok_len)] # 압축할 글자의 수로 text를 나눔 (단어들의 리스트)
+    res = []
+    cur_word = words[0] # 압축 패턴
+    cur_cnt = 1 # 압축할 패턴이 등장한 횟수
+   
+    for a, b in zip(words, words[1:] + ['']): 
+        # a = 비교 대상 앞, b = 비교 대상 뒤
+        if a == b: # 동일할 경우
+            cur_cnt += 1 # 압축 패턴 등장 횟수 추가
+        else: # 동일하지 않을 경우
+            res.append([cur_word, cur_cnt]) # 결과에 이전까지의 압축횟수 + 압축단어 저장
+            cur_word = b # 압축 패턴 변경
+            cur_cnt = 1 # 압축 등장 횟수 초기화
+
+    # 각 숫자와 단어를 모두 글자 수로 계산한다. 반복 횟수가 1번일 경우는 글자 수로 포함하지 않음
+    return sum(len(word) + (len(str(cnt)) if cnt > 1 else 0) for word, cnt in res)
+
+def solution(text):
+    return min(compress(text, tok_len) for tok_len in list(range(1, int(len(text)/2) + 1)))
+    # 반복 되는 글자 수의 모든 경우의 수로 진행하여 가장 작은 값을 뽑는다.
+    # 범위가 1 ~ len(text_/2)+1 인 이유는 반복되려면 전체 글자 수의 반 이하가 되야되므로
