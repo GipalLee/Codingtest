@@ -1,0 +1,16 @@
+import collections
+import itertools
+
+def solution(orders, course):
+    result = []
+
+    for course_size in course: # 코스로 선택할 메뉴의 개수
+        order_combinations = []
+        for order in orders:
+            order_combinations += itertools.combinations(sorted(order), course_size)
+            # combinations order안의 원소들을 함수는 course_size의 모든 경우의 수로 만든 튜플들로 이루어진 리스트를 반환
+        most_ordered = collections.Counter(order_combinations).most_common()
+        # most_common() 은 가장 많이 등장한 회수로 내림차순 정렬
+        result += [ k for k, v in most_ordered if v > 1 and v == most_ordered[0][1] ]
+        # k는 코스로 만들 메뉴들, v는 등장회수 (v가 최고 등장회수와 동일할 경우 계속 결과에 추가) 
+    return [ ''.join(v) for v in sorted(result) ] # 리스트를 정렬한 후 문자열로 반환
