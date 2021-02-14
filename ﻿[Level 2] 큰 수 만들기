@@ -1,0 +1,12 @@
+def solution(number, k):
+    stack = [number[0]] # 처음 원소를 저장
+    for num in number[1:]: # 다음 원소를 순차적으로 대입
+        # 스택에 무언가 있으면서, 마지막 값이 지금보다 작으면서, k가 남았을 경우
+        # 가장 큰 값을 가능한 조건 아래에서 시작 값으로 만들기 위해
+        while len(stack) > 0 and stack[-1] < num and k > 0:
+            k -= 1 # k 회수 차감
+            stack.pop() # 문자열에서 지움
+        stack.append(num) # 일단 문자열에 추가
+    if k != 0: # k가 남아있다면
+        stack = stack[:-k] # 만든 문자열에서 k개만큼 뒤에서 제거
+    return ''.join(stack)
