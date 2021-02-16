@@ -1,0 +1,7 @@
+def solution(numbers):
+    numbers = list(map(str, numbers)) # 각 숫자를 문자열로 변환
+    numbers.sort(key=lambda x: x*3, reverse=True) 
+    # num의 자릿수가 1000 이하이므로 1의 자리 숫자도 1000 이하의 최대 숫자로 만들어서
+    # 문자열 비교를 함
+    return str(int(''.join(numbers))) # 정렬된 배열을 다시 합쳐 0000과 같은 수를 0으로 만들기 위해
+                                      # 인트로 형변환 한 후 다시 문자열로 반환
