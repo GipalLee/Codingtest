@@ -1,0 +1,15 @@
+def solution(p):
+    if p=='': return p
+    r=True
+    c=0
+    for i in range(len(p)):
+        if p[i]=='(': c-=1 # 올바른 괋호 문자열일 경우 c 가 양수가 되면 안됨
+        else: c+=1
+        if c>0: r=False # 올바르지 않은 괄호 문자열
+        if c==0:
+            if r: # 올바른 문자열인 경우 (문제의 3번 과정)
+                # 해당 인덱스까지 뽑고 뒤에는 다시 재귀
+                return p[:i+1]+solution(p[i+1:]) 
+            else: # 올바르지 않은 문자열일 경우 (문제의 4번 과정)
+                # 4.1 + 4.2 + 4.3 + 4.4
+                return '('+solution(p[i+1:])+')'+''.join(list(map(lambda x:'(' if x==')' else ')',p[1:i]) ))
