@@ -1,0 +1,8 @@
+def solution(phone_book):
+    phone_book = sorted(phone_book) # 문자열 정렬 후
+    
+    for i in range(len(phone_book)) : # 접두사를 뽑고
+        for j in range(i+1,len(phone_book)) : # 문자열 중 접두어가 있는지 확인
+            if phone_book[j].startswith(phone_book[i]) : # startswith는 문자열이 해당 문자로 시작하는지 확인
+                return False
+    return True
