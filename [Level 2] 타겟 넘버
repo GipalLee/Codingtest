@@ -1,0 +1,7 @@
+def solution(numbers, target):
+    if not numbers and target == 0 : # 숫자가 없으면서 타겟이 0 이면 1 반환
+        return 1
+    elif not numbers: # 타겟은 있는데 숫자만 없을경우 0 반환
+        return 0
+    else: # 숫자들의 리스트에서 한 숫자를 더한 값과 뺀 값에 모든 경우의 수를 보기 위해 재귀를 사용
+        return solution(numbers[1:], target-numbers[0]) + solution(numbers[1:], target+numbers[0])
