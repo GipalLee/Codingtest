@@ -1,0 +1,15 @@
+def solution(brown, yellow):
+    answer = []
+    
+    total = brown + yellow
+
+    n = 2
+    while True :
+        n += 1
+        row = n
+        if total % row != 0 :
+            continue
+        col = total // row
+        
+        if (row-2) * (col-2) == yellow :
+            return [col,row]
