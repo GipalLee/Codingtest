@@ -1,0 +1,28 @@
+from collections import deque
+
+def solution(maps):
+    x_move = [1, 0, -1, 0] # 인덱스가 0 이면 우,2 이면 좌 이동
+    y_move = [0, 1, 0, -1] # 인덱스가 1 이면 상,4 이면 하 이동 
+
+    x_h, y_h = (len(maps[0]), len(maps)) # 행과 열의 크기 입력
+    queue = deque([(0, 0, 1)]) # x,y,d의 초기값을 위해
+
+    while queue:
+        x, y, d = queue.popleft()
+
+        for i in range(4):
+            nx = x + x_move[i]
+            ny = y + y_move[i]
+            
+            # 해당 좌표가 주어진 맵 안에 있다면
+            if nx > -1 and ny > -1 and nx < x_h and ny < y_h: 
+                
+                # 벽이 없는 자리 이거나 다른 길로 돌아와 비효율적인 길이라면
+                if maps[ny][nx] == 1 or maps[ny][nx] > d + 1:
+                    maps[ny][nx] = d + 1 # 더 최적의 길 거리 값 저장
+                    if nx == x_h - 1 and ny == y_h - 1: # 오른쪽 아래 가장자리라면
+                        return d + 1 # 도착
+
+                    queue.append((nx, ny, d + 1)) #오른ㅉ고 아래 가장자리가 아니면 계속 진행
+
+    return -1 # 도착 못했을 시 -1 반환
