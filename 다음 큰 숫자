@@ -1,0 +1,7 @@
+def nextBigNumber(n):
+    num1 = bin(n).count('1') # num1은 이진수한 n의 1의 개수
+    while True:
+        n = n + 1
+        if num1 == bin(n).count('1'): # 숫자를 늘려가면서 해당 숫자의 이진수의 개수가 같다면
+            break
+    return n # 정답
