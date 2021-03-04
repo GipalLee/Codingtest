@@ -1,0 +1,31 @@
+def solution(dirs):
+
+
+    walk_list = []
+    start_location = [0,0]
+    now_location = [0,0]
+    for c in dirs:
+        # 위 방향이면서 범위 안에 있을 때
+        if c == 'U' and start_location[1] < 5:
+            # 지금 위치 = 시작위치 값에 더해줌
+            now_location = [start_location[0],start_location[1] + 1]
+            
+        elif c == 'L' and start_location[0] > -5:
+            now_location = [start_location[0] - 1, start_location[1]]
+
+        elif c == 'R' and start_location[0] < 5:
+            now_location = [start_location[0] + 1, start_location[1]]
+
+        elif c == 'D'and start_location[1] > -5:
+            now_location = [start_location[0], start_location[1] - 1]
+
+        # [[시작점,현재위치]] 가 걸어온 리스트에 없으면서 [[현재위치,시작점]] 또한 걸어온 리스트에 없으면서 시작점과 현재위치가 다를 때
+        if ([start_location,now_location] not in walk_list) and ([now_location,start_location] not in walk_list) \
+                and (now_location != start_location) :
+            # 걸어온 리스트에 추가 해줌 (새로운 길만 추가)
+            walk_list.append([start_location,now_location])
+        
+        # 시작점을 현재 위치로 바꿔줌
+        start_location = now_location
+
+    return len(walk_list)
