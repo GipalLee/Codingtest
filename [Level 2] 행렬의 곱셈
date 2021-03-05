@@ -1,0 +1,12 @@
+def solution(arr1, arr2):
+    answer = []
+    
+    for rows in arr1 : # 첫 번째 행렬에서 곱셈에 사용될 한 행을 가져온다
+        done = []
+        for columns in range(len(arr2[0])) : # 열의 총 개수만큼 진행 ( 진행중인 행번호 )
+            total = 0 
+            for i in range(len(arr2)) : # 행의 총 개수만큼 진행
+                total += rows[i] * arr2[i][columns] # 가져온 한 행의 값 * 두 번째 행렬의 진행중인 행번호의 원소 값들
+            done.append(total)
+        answer.append(done)
+    return answer
