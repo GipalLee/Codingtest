@@ -1,0 +1,5 @@
+def fibonacci(num):
+    a,b = 0,1
+    for i in range(num): # 처음부터 원하는 범위까지 피보나치 수를 만들어 나감
+        a,b = b,a+b
+    return a
