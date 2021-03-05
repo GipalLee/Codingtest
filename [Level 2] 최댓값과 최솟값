@@ -1,0 +1,3 @@
+def solution(s):
+    s = list(map(int,s.split())) # 스페이스 바 기준으로 나눈 뒤 정수형변환을 map함수로 진행 후 리스트로 만듬
+    return str(min(s)) + " " + str(max(s))
