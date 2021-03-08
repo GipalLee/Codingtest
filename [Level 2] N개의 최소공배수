@@ -1,0 +1,26 @@
+def solution(arr):
+    if len(arr) == 1: # 만약 주어진 값이 하나면 그대로 반환
+        return arr[0]
+    
+    a = 0
+    b = 0
+    for i in arr : 
+        if a == 0 : # 최소공배수를 구할 대상이 없으면 등록 후 다음 숫자로 패스
+            a = i
+            continue
+        else : # a와 최소공배수를 구할 상대 등록
+            b = i
+            
+        if a >= i : # a와 b중 큰 수 저장
+            big = a
+            small = b
+        else :
+            small = a
+            big = b
+            
+        while small != 0 : # 작은 수가 0이 될때까지
+            big,small = small , big%small # big은 최대공약수가 됨
+            
+        a = (a*b) / big # a에 이번에 구한 최소공배수를 저장
+        
+    return a # 배열안 모든 값들의 최소공배수를 반환
