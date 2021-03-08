@@ -1,0 +1,7 @@
+def solution(n, words):
+    for p in range(1, len(words)):
+        # 다음 단어의 첫글자가 이전 단어 마지막글자와 다르거나 / 해당 단어가 이전 단어들 중 동일한 값이 있다면
+        # 몇 번째 사람 / 몇 번째 차례
+        if words[p][0] != words[p-1][-1] or words[p] in words[:p]: return [(p%n)+1, (p//n)+1]
+    else:
+        return [0,0]
