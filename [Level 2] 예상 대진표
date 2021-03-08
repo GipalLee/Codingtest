@@ -1,0 +1,7 @@
+def solution(n,a,b):
+    answer = 0
+    while a != b: # a와 b가 같은 값이 될 때가 둘이 만나는 라운드
+        answer += 1 # 카운팅 
+        a, b = (a+1)//2, (b+1)//2 # 홀수이든 짝수이든 1을 더해서 몫을 구하면 같기 때문
+
+    return answer
