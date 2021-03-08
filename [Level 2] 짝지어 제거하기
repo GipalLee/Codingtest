@@ -1,0 +1,16 @@
+def solution(s):
+    answer = []
+    for i in s:
+        if not(answer): # 스택이 비었을 경우
+            answer.append(i) # 추가
+        else:
+            if(answer[-1] == i): # 스택의 마지막 값과 동일하다면
+                answer.pop() # 삭제
+            else:
+                answer.append(i)    
+                
+    if not(answer) : # 스택이 비어있을 경우 성공 1반환
+        return 1
+    else :
+        return 0
+
