@@ -1,0 +1,25 @@
+def solution(genres, plays):
+    answer = []
+
+    dic1 = {}
+    dic2 = {}
+
+    for i, (g, p) in enumerate(zip(genres, plays)):
+        if g not in dic1: # 동일 장르끼리 인덱스와 횟수를 모음
+            dic1[g] = [(i, p)]
+        else:
+            dic1[g].append((i, p))
+
+        if g not in dic2: # 동일 장르의 총 합을 구함
+            dic2[g] = p
+        else:
+            dic2[g] += p
+
+    for (k, v) in sorted(dic2.items(), key=lambda x:x[1], reverse=True):
+    # 장르별 총 횟수의 합을 내림차순하여 정렬 k = 장르 v = 횟수# 장르별 총 횟수의 합을 내림차순하여 정렬 k = 장르 v = 횟수
+        for (i, p) in sorted(dic1[k], key=lambda x:x[1], reverse=True)[:2]:
+        # 장르끼리 모아논 딕셔너리에서 한 장르의 재생 횟수를 내림차순으로 정렬
+        i = 인덱스 p = 재생 횟수
+            answer.append(i) # 인덱스만 정답에 추가
+
+    return answer
