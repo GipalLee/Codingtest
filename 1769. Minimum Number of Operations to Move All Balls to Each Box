@@ -1,0 +1,11 @@
+class Solution:
+    def minOperations(self, boxes: str) -> List[int]:
+        answers = []
+        
+        for i in range(len(boxes)) : # 이번에 공을 모을 상자 인덱스
+            answer = 0
+            for j in range(len(boxes)) : # 모든 상자를 체크
+                if boxes[j] == '1' : # 공이 있을 경우
+                    answer += abs(j-i) # 공을 모을 상자와의 거리 측정해서 정답에 추가
+            answers.append(answer)
+        return answers
