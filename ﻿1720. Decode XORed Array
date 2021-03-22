@@ -1,0 +1,6 @@
+class Solution:
+    def decode(self, A, first):
+        return list(accumulate([first] + A, lambda x, y: x ^ y))
+        # 우선 first와 인코딩 된 배열 A를 합춘다 ex) [1,1,2,3]
+        # accumulate 함수를 이용하여 전 값과 xor계산을 한다 (인코딩 전 첫번재 원소와 이코딩 된 후를 다시 xor하면 됨)
+        # [1,0,2,1]
