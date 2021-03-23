@@ -1,0 +1,12 @@
+class Solution:
+    def maxIncreaseKeepingSkyline(self, grid: List[List[int]]) -> int:
+        answer = sum(map(sum,grid)) # 기존 행렬의 높이 총 합을 구함
+        row_max = [max(x) for x in grid] # 각 행의 최댓값들을 뽑음
+        grid = list(map(list,zip(*grid))) # 행렬을 전치행렬로 바꿈
+        column_max = [max(x) for x in grid] # 각 열의 최댓값들을 뽑음
+        
+        for r in range(len(row_max)) :
+            for c in range(len(column_max)) :
+                grid[r][c] = min(row_max[r],column_max[c]) # 해당 원소의 행과 열중 작은 값에 맞춰 높이 향상
+            
+        return sum(map(sum,grid)) - answer # 건물 높이 바꾼 행렬 총 합 - 기존 행렬의 높이의 합
