@@ -1,0 +1,9 @@
+class Solution:
+    def largestAltitude(self, gain: List[int]) -> int:
+        
+        answer =[0] # 시작할 때의 고도
+        
+        for i in gain :
+            answer.append(answer[-1]+i) # 마지막 고도에서 다음 여행지의 고도를 더해서 현재 고도
+        
+        return max(answer) # 여행했던 고도 중 가장 높은 값 반환
