@@ -1,0 +1,13 @@
+class Solution:
+    def countGoodRectangles(rectangles):
+        max_len = float('-inf')
+        count = 0
+        for item in rectangles:
+            min_len = min(item) # 잘라서 만들 수 있는 정사각형의 최대 길이
+            if min_len == max_len: # 구한 길이가 기존의 최댓값과 같다면 카운트
+                count += 1
+            elif min_len > max_len: # 더 크다면 최댓값 교체 후 카운트 1로 초기화
+                max_len = min_len
+                count = 1
+
+        return count
