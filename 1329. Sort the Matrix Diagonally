@@ -1,0 +1,17 @@
+class Solution:
+    def diagonalSort(self, A):
+        m, n = len(A), len(A[0]) # m=행,n=열
+        def sort(i, j):
+            vals = []
+            while i < m and j < n: # 행과 열의 범위 안에서
+                vals.append(A[i][j]) # i,j를 시작점으로 대각선 모든 원소를 모음
+                i += 1
+                j += 1
+            vals.sort() # 오름차순 정렬
+            while i and j: # 다시 거꾸로 이동하면서 높은 숫자부터 대입해줌
+                j -= 1 
+                i -= 1
+                A[i][j] = vals.pop()
+        for i in range(m): sort(i, 0) # 행렬의 (모든 행,0열) 시작점으로 돌림
+        for j in range(n): sort(0, j) # 행렬의 (0 행,모든 열) 시작점으로 돌림
+        return A
