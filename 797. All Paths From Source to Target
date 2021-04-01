@@ -1,0 +1,20 @@
+class Solution:
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        result = []
+        partialResult = []
+
+        # 목적지로 가는 길 찾는 함수
+        def findPath(node): # 출발 노드를 받음
+            if node == len(graph)-1: # 출발 노드와 도착지 노드가 같을경우
+                result.append(partialResult.copy()) # 정답리스트에 추가
+                return
+
+            for i in graph[node]: # 출발 노드와 연결된 노드 확인
+                partialResult.append(i) # 연결된 노드를 만들고 있는 길에 추가
+                findPath(i) # 연결된 노드의 연결된 노드들 확인
+                partialResult.pop() # 하나의 연결된 노드에 모두 다 돌아봤다면
+                                    # 길을 다시 초기화해줌
+
+        partialResult.append(0)   # 시작점
+        findPath(0)
+        return result
