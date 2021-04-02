@@ -1,0 +1,15 @@
+def partition_labels(S):
+
+	rightmost = {c:i for i, c in enumerate(S)} # 등장하는 알파벳 중 가장 오른쪽에 등장하는 인덱스 찾기
+	left, right = 0, 0
+
+	result = []
+	for i, letter in enumerate(S): # 문자를 하나씩 가져옴
+
+		right = max(right,rightmost[letter]) # 가져온 문자의 가장 오른쪽 자리를 찾고
+	
+		if i == right:
+			result += [right-left + 1] # 여기까지가 하나의 파티션이므로 시작~종료지점 개수 더해놈
+			left = i+1 # 시작점 셋팅 해줌
+
+	return result
