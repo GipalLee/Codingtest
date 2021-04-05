@@ -1,0 +1,11 @@
+class Solution:
+    def findingUsersActiveMinutes(self, logs: List[List[int]], k: int) -> List[int]:
+        d = defaultdict(set) # set으로 딕셔너리 만들어서 중복값 자동제거
+        for x, t in logs: # x는 유저 t 는 수행시간
+            d[x].add(t) 
+        ans = [0] * k # 정답배열 만들기
+        for x in d: # 딕셔너리 반복문 사용하면 키만나옴
+            l = len(d[x]) # 해당 유저의 다른 시간 수행횟수
+            ans[l - 1] += 1 # 동일한 수행횟수 가지는 값 인덱스에 증가시킴
+            # 즉 ans[1]은 다른 시간 수행 횟수가 2번인 유저들의 명수
+        return ans
